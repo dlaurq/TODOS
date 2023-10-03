@@ -28,6 +28,7 @@ export default function TodoCheck({ todo }: { todo: Todo }) {
 
   return (
     <input
+      className="cursor-pointer"
       type="checkbox"
       name={'task' + todo.id.toString()}
       id={todo.id.toString()}
