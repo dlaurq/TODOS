@@ -1,9 +1,10 @@
+import TodoCheck from './components/TodoCheck';
 import TodoDelBtn from './components/TodoDelBtn';
 import TodosInput from './components/TodosInput';
 import prisma from './lib/prisma';
 
 export default async function Home() {
-  const todos = await prisma.todo.findMany();
+  const todos = await prisma.todo.findMany({ orderBy: { id: 'asc' } });
 
   return (
     <main className="min-w-max min-h-screen flex justify-center items-start gap-5 bg-gray-200">
@@ -17,7 +18,8 @@ export default async function Home() {
             key={todo.id}
             className="bg-white border-b-2 border-b-gray-200 p-5 flex flex-row justify-between items-center"
           >
-            <p>{todo.title}</p>
+            <TodoCheck todo={todo} />
+            <p className={`${todo.isDone && 'line-through'}`}>{todo.title}</p>
             <TodoDelBtn id={todo.id} />
           </section>
         ))}
