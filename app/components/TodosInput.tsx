@@ -17,7 +17,7 @@ export default function TodosInput() {
         const data = await res.json();
         setInputValue('');
         router.refresh();
-        console.log(data);
+        //console.log(data);
       } catch (err) {
         console.log(err);
       }
