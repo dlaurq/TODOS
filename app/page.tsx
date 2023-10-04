@@ -1,3 +1,4 @@
+import TodoDelBtn from './components/TodoDelBtn';
 import TodosInput from './components/TodosInput';
 import prisma from './lib/prisma';
 
@@ -14,9 +15,10 @@ export default async function Home() {
         {todos.map((todo) => (
           <section
             key={todo.id}
-            className="bg-white border-b-2 border-b-gray-200 p-5"
+            className="bg-white border-b-2 border-b-gray-200 p-5 flex flex-row justify-between items-center"
           >
             <p>{todo.title}</p>
+            <TodoDelBtn id={todo.id} />
           </section>
         ))}
       </section>
