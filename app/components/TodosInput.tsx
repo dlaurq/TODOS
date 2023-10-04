@@ -6,6 +6,7 @@ import React, { useState } from 'react';
 export default function TodosInput() {
   const [inputValue, setInputValue] = useState<string>('');
   const router = useRouter();
+
   const handleKeyDown = async (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'Enter') {
       try {
@@ -27,7 +28,7 @@ export default function TodosInput() {
   return (
     <section>
       <input
-        className="border-b-gray-200 border-b-2 p-5"
+        className="border-b-gray-200 border-b-2 p-5 w-full"
         type="text"
         placeholder="What needs to be done?"
         value={inputValue}

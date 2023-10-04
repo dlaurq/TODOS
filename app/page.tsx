@@ -1,11 +1,23 @@
-import TodoCheck from './components/TodoCheck';
-import TodoDelBtn from './components/TodoDelBtn';
 import TodosInput from './components/TodosInput';
 import Todo from './components/Todo';
 import prisma from './lib/prisma';
+import Filters from './components/Filters';
 
-export default async function Home() {
-  const todos = await prisma.todo.findMany({ orderBy: { id: 'asc' } });
+export default async function Home({
+  searchParams,
+}: {
+  searchParams: { filter: string };
+}) {
+  const where = searchParams?.filter
+    ? searchParams.filter === 'comp'
+      ? { isDone: true }
+      : { isDone: false }
+    : {};
+
+  const todos = await prisma.todo.findMany({
+    orderBy: { id: 'asc' },
+    where: where,
+  });
 
   return (
     <main className="min-w-max min-h-screen flex justify-center items-start gap-5 bg-gray-200">
@@ -17,6 +29,7 @@ export default async function Home() {
         {todos.map((todo) => (
           <Todo todo={todo} key={todo.id} />
         ))}
+        <Filters />
       </section>
     </main>
   );
