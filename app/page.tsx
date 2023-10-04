@@ -3,6 +3,7 @@ import Todo from './components/Todo';
 import prisma from './lib/prisma';
 import Filters from './components/Filters';
 import CompAllBtn from './components/CompAllBtn';
+import ClearCompBtn from './components/ClearCompBtn';
 
 export default async function Home({
   searchParams,
@@ -33,11 +34,12 @@ export default async function Home({
           <Todo todo={todo} key={todo.id} />
         ))}
         <section>
-          <section className="bg-white mt-2 p-2">
+          <section className="bg-white  p-2 flex flex-row justify-between items-center">
             <p>
               {counter} {counter === 1 ? 'item' : 'items'} left
             </p>
             <CompAllBtn />
+            <ClearCompBtn />
           </section>
           <Filters />
         </section>
