@@ -15,6 +15,7 @@ export default function TodosInput() {
         });
 
         const data = await res.json();
+        setInputValue('');
         router.refresh();
         console.log(data);
       } catch (err) {
@@ -26,7 +27,7 @@ export default function TodosInput() {
   return (
     <section>
       <input
-        className="border-black border-2"
+        className="border-b-gray-200 border-b-2 p-5"
         type="text"
         placeholder="What needs to be done?"
         value={inputValue}
