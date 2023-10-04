@@ -2,12 +2,16 @@
 
 import { Todo } from '@prisma/client';
 import { useRouter } from 'next/navigation';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 export default function TodoCheck({ todo }: { todo: Todo }) {
   const [isDone, setIsDone] = useState<boolean>(todo.isDone);
 
   const router = useRouter();
+
+  useEffect(() => {
+    setIsDone(todo.isDone);
+  }, [todo.isDone]);
 
   const handleChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
     setIsDone(e.target.checked);

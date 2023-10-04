@@ -2,6 +2,7 @@ import TodosInput from './components/TodosInput';
 import Todo from './components/Todo';
 import prisma from './lib/prisma';
 import Filters from './components/Filters';
+import CompAllBtn from './components/CompAllBtn';
 
 export default async function Home({
   searchParams,
@@ -36,6 +37,7 @@ export default async function Home({
             <p>
               {counter} {counter === 1 ? 'item' : 'items'} left
             </p>
+            <CompAllBtn />
           </section>
           <Filters />
         </section>
