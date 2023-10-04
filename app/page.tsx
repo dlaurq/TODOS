@@ -19,6 +19,8 @@ export default async function Home({
     where: where,
   });
 
+  const counter = await prisma.todo.count({ where: { isDone: false } });
+
   return (
     <main className="min-w-max min-h-screen flex justify-center items-start gap-5 bg-gray-200">
       <section className="flex flex-col justify-between h-full">
@@ -29,7 +31,14 @@ export default async function Home({
         {todos.map((todo) => (
           <Todo todo={todo} key={todo.id} />
         ))}
-        <Filters />
+        <section>
+          <section className="bg-white mt-2 p-2">
+            <p>
+              {counter} {counter === 1 ? 'item' : 'items'} left
+            </p>
+          </section>
+          <Filters />
+        </section>
       </section>
     </main>
   );

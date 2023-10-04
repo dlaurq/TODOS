@@ -4,6 +4,8 @@ import { useRouter, useSearchParams } from 'next/navigation';
 import qs from 'query-string';
 
 const Filters = () => {
+  const searchParams = useSearchParams();
+
   const router = useRouter();
 
   const searchParams = useSearchParams();
