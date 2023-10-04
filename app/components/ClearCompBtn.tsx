@@ -2,19 +2,20 @@
 
 import { useRouter } from 'next/navigation';
 
-const CompAllBtn = () => {
+const ClearCompBtn = () => {
   const router = useRouter();
-
   const handleClick = async () => {
-    await completeTodos();
+    await DeleteTodos();
+
     router.refresh();
   };
 
-  const completeTodos = async () => {
+  const DeleteTodos = async () => {
     try {
       const res = await fetch('/api/todo/complete', {
-        method: 'POST',
+        method: 'DELETE',
       });
+
       //const data = await res.json();
       //console.log(data);
     } catch (err) {
@@ -24,9 +25,9 @@ const CompAllBtn = () => {
 
   return (
     <button className="hover:text-red-400" onClick={handleClick}>
-      Complete all
+      Clear completed
     </button>
   );
 };
 
-export default CompAllBtn;
+export default ClearCompBtn;
