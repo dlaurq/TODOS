@@ -22,6 +22,7 @@ export default function TodoDelBtn({ id }: { id: number }) {
 
   return (
     <button
+      data-testid="del-btn"
       className="text-red-500 font-bold text-2xl hover:text-red-800"
       onClick={handleClick}
     >

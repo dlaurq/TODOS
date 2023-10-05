@@ -45,6 +45,7 @@ export default function TodoTxtUpdate({ todo }: { todo: Todo }) {
         </section>
       ) : (
         <p
+          data-testid="todo-title"
           className={`${
             todo.isDone && 'line-through'
           } cursor-pointer text-left border-2 border-transparent`}
