@@ -30,25 +30,23 @@ export default function TodoTxtUpdate({ todo }: { todo: Todo }) {
 
   return (
     <section
-      className="w-full"
+      className="todo__title"
       onClick={(e) => e.detail === 2 && setEditMode(true)}
     >
       {editMode ? (
-        <section>
-          <input
-            className="w-fit border-2 border-black"
-            type="text"
-            value={inputValue}
-            onChange={(e) => setInputValue(e.target.value)}
-            onKeyDown={handleKeyDown}
-          />
-        </section>
+        <input
+          className="todo__title--edit"
+          type="text"
+          value={inputValue}
+          onChange={(e) => setInputValue(e.target.value)}
+          onKeyDown={handleKeyDown}
+        />
       ) : (
         <p
           data-testid="todo-title"
           className={`${
-            todo.isDone && 'line-through'
-          } cursor-pointer text-left border-2 border-transparent`}
+            todo.isDone && 'todo__title--done'
+          } todo__title--content`}
         >
           {todo.title}
         </p>

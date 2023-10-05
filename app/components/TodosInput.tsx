@@ -26,15 +26,13 @@ export default function TodosInput() {
   };
 
   return (
-    <section>
-      <input
-        className="border-b-gray-200 border-b-2 p-5 w-full"
-        type="text"
-        placeholder="What needs to be done?"
-        value={inputValue}
-        onChange={(e) => setInputValue(e.target.value)}
-        onKeyDown={handleKeyDown}
-      />
-    </section>
+    <input
+      className="section__input"
+      type="text"
+      placeholder="What needs to be done?"
+      value={inputValue}
+      onChange={(e) => setInputValue(e.target.value)}
+      onKeyDown={handleKeyDown}
+    />
   );
 }

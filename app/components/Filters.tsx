@@ -22,26 +22,26 @@ const Filters = () => {
   };
 
   return (
-    <section className=" flex flex-row justify-between items-center pt-2 gap-5">
+    <section className="filters">
       <button
-        className={`text-xl bg-white py-1 px-2 border-2 hover:border-red-400 ${
-          searchParams.get('filter') === '' && 'border-red-400'
+        className={`filters__btn ${
+          searchParams.get('filter') === '' && 'filters__btn--selected'
         }`}
         onClick={() => handleFilters('')}
       >
         All
       </button>
       <button
-        className={`text-xl bg-white py-1 px-2 border-2 hover:border-red-400 ${
-          searchParams.get('filter') === 'comp' && 'border-red-400'
+        className={`filters__btn ${
+          searchParams.get('filter') === 'comp' && 'filters__btn--selected'
         }`}
         onClick={() => handleFilters('comp')}
       >
         Completed
       </button>
       <button
-        className={`text-xl bg-white py-1 px-2 border-2 hover:border-red-400 ${
-          searchParams.get('filter') === 'unComp' && 'border-red-400'
+        className={`filters__btn ${
+          searchParams.get('filter') === 'unComp' && 'filters__btn--selected'
         }`}
         onClick={() => handleFilters('unComp')}
       >

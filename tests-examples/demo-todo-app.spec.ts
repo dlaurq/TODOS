@@ -40,6 +40,7 @@ test.describe('New Todo', () => {
 
     await checkNumberOfTodosInLocalStorage(page, 2);
   });
+
   /**
   test('should clear text input field when an item is added', async ({ page }) => {
     // create a new todo locator

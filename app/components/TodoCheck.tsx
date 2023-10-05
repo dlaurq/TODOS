@@ -32,7 +32,7 @@ export default function TodoCheck({ todo }: { todo: Todo }) {
 
   return (
     <input
-      className="cursor-pointer"
+      className="todo__check"
       type="checkbox"
       name={'task' + todo.id.toString()}
       id={todo.id.toString()}
