@@ -24,7 +24,7 @@ const ClearCompBtn = () => {
   };
 
   return (
-    <button className="hover:text-red-400" onClick={handleClick}>
+    <button className="actions__clear" onClick={handleClick}>
       Clear completed
     </button>
   );

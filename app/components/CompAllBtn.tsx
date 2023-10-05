@@ -23,7 +23,7 @@ const CompAllBtn = () => {
   };
 
   return (
-    <button className="hover:text-red-400" onClick={handleClick}>
+    <button className="actions__complete" onClick={handleClick}>
       Complete all
     </button>
   );
